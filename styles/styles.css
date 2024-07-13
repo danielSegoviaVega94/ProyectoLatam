@@ -1,0 +1,219 @@
+:root {
+    --background-color: #f1f4f9;
+    --text-color: #2c3e50;
+    --container-background-color: #ffffff;
+    --textarea-border-color: #d1d9e6;
+    --textarea-background-color: #ffffff;
+    --textarea-text-color: #2c3e50;
+    --button-encrypt-background-color: #007bff;
+    --button-encrypt-text-color: #ffffff;
+    --button-decrypt-background-color: #ffffff;
+    --button-decrypt-text-color: #007bff;
+    --button-decrypt-border-color: #007bff;
+    --button-swap-background-color: #28a745;
+    --button-swap-text-color: #ffffff;
+    --button-encrypt-hover-background-color: #0056b3;
+    --button-decrypt-hover-background-color: #e6f7ff;
+    --button-swap-hover-background-color: #218838;
+    --info-text-color: #6c757d;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding-top: 60px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    background-color: var(--container-background-color);
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    background-color: var(--container-background-color);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.input-area, .output-area {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    border: 1px solid var(--textarea-border-color);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    background-color: var(--textarea-background-color);
+    color: var(--textarea-text-color);
+}
+
+.method-selector {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.method-selector label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.method-selector select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--textarea-border-color);
+    background-color: var(--textarea-background-color);
+    color: var(--textarea-text-color);
+    cursor: pointer;
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button {
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button.encrypt {
+    background-color: var(--button-encrypt-background-color);
+    color: var(--button-encrypt-text-color);
+}
+
+button.decrypt {
+    background-color: var(--button-decrypt-background-color);
+    color: var(--button-decrypt-text-color);
+    border: 1px solid var(--button-decrypt-border-color);
+}
+
+button.swap {
+    background-color: var(--button-swap-background-color);
+    color: var(--button-swap-text-color);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button.encrypt:hover {
+    background-color: var(--button-encrypt-hover-background-color);
+}
+
+button.decrypt:hover {
+    background-color: var(--button-decrypt-hover-background-color);
+}
+
+button.swap:hover {
+    background-color: var(--button-swap-hover-background-color);
+}
+
+.info {
+    font-size: 12px;
+    color: var(--info-text-color);
+    margin-top: 10px;
+}
+
+.history {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.history h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.history li {
+    background-color: var(--textarea-background-color);
+    border: 1px solid var(--textarea-border-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        margin-top: 80px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+}
