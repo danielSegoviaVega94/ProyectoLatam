@@ -1,6 +1,6 @@
 let historyList = [];
 
-// Valida que el texto solo contiene letras minusculas y espacios, excepto para Base64 (por que base 64 devuelve con mayusculas)
+// Validar que el texto solo contiene letras minúsculas y espacios, excepto para Base64
 function isValidText(text, method) {
     if (method === 'base64') {
         return true;
@@ -9,7 +9,7 @@ function isValidText(text, method) {
     return regex.test(text);
 }
 
-// Cargar el historial desde localStorage al iniciar la pagina
+// Cargar el historial desde localStorage al iniciar la página
 function loadHistory() {
     const savedHistory = localStorage.getItem('historyList');
     if (savedHistory) {
@@ -34,7 +34,7 @@ function updateHistory(action, input, output) {
     historyListElement.appendChild(newItem);
 }
 
-// Actualizar el placeholder del area de entrada y el mensaje de validacion
+// Actualizar el placeholder del área de entrada y el mensaje de validación
 function updatePlaceholder() {
     const method = document.getElementById('method').value;
     const inputText = document.getElementById('inputText');
@@ -44,8 +44,8 @@ function updatePlaceholder() {
         validationInfo.textContent = "No hay restricciones de validación para Base64.";
         validationInfo.classList.add('warning');
     } else {
-        inputText.placeholder = "Ingrese el texto aqui";
-        validationInfo.textContent = "Solo letras minusculas y sin acentos.";
+        inputText.placeholder = "Ingrese el texto aquí";
+        validationInfo.textContent = "Solo letras minúsculas y sin acentos.";
         validationInfo.classList.remove('warning');
     }
 }
@@ -67,6 +67,18 @@ function base64Decode(str) {
     return atob(str);
 }
 
+// Encriptación One
+function customEncode(str) {
+    const map = { 'e': 'enter', 'i': 'imes', 'a': 'ai', 'o': 'ober', 'u': 'ufat' };
+    return str.replace(/[eioua]/g, match => map[match]);
+}
+
+// Desencriptación One
+function customDecode(str) {
+    const map = { 'enter': 'e', 'imes': 'i', 'ai': 'a', 'ober': 'o', 'ufat': 'u' };
+    return str.replace(/enter|imes|ai|ober|ufat/g, match => map[match]);
+}
+
 // Encriptar texto
 function encryptText() {
     const inputText = document.getElementById('inputText').value;
@@ -85,6 +97,9 @@ function encryptText() {
             break;
         case 'base64':
             outputText = base64Encode(inputText);
+            break;
+        case 'custom':
+            outputText = customEncode(inputText);
             break;
     }
     document.getElementById('outputText').value = outputText;
@@ -109,6 +124,9 @@ function decryptText() {
             break;
         case 'base64':
             outputText = base64Decode(inputText);
+            break;
+        case 'custom':
+            outputText = customDecode(inputText);
             break;
     }
     document.getElementById('outputText').value = outputText;
@@ -144,10 +162,10 @@ function downloadResult() {
     anchor.download = 'resultado.txt';
     anchor.href = window.URL.createObjectURL(blob);
     anchor.target = '_blank';
-    anchor.style.display = 'none'; // Ocultar el elemento anchor
-    document.body.appendChild(anchor); // Añadir el anchor al DOM
-    anchor.click(); // Hacer clic en el anchor
-    document.body.removeChild(anchor); // Eliminar el anchor del DOM
+    anchor.style.display = 'none';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
 }
 
 // Cargar el historial cuando la página esté lista

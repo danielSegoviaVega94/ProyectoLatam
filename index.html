@@ -13,11 +13,12 @@
 </header>
 <div class="container">
     <div class="input-area">
-        <label for="inputText"></label><textarea id="inputText" placeholder="Ingrese el texto aquí"></textarea>
+        <textarea id="inputText" placeholder="Ingrese el texto aquí"></textarea>
     </div>
     <div class="method-selector">
         <label for="method">Método de Encriptación:</label>
         <select id="method" onchange="updatePlaceholder()">
+            <option value="custom">Encriptado One</option>
             <option value="reverse">Revertir Texto</option>
             <option value="caesar">Cifrado César</option>
             <option value="base64">Base64</option>
@@ -41,7 +42,7 @@
         </button>
     </div>
     <div class="output-area">
-        <label for="outputText"></label><textarea id="outputText" readonly placeholder="Resultado aquí"></textarea>
+        <textarea id="outputText" readonly placeholder="Resultado aquí"></textarea>
     </div>
     <div class="info" id="validationInfo">
         Solo letras minúsculas y sin acentos.
