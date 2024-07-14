@@ -16,6 +16,7 @@
     --button-decrypt-hover-background-color: #e6f7ff;
     --button-swap-hover-background-color: #218838;
     --info-text-color: #6c757d;
+    --warning-text-color: #d9534f;
 }
 
 body {
@@ -160,10 +161,29 @@ button.swap:hover {
     background-color: var(--button-swap-hover-background-color);
 }
 
+.file-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.file-buttons input[type="file"] {
+    width: calc(70% - 10px);
+}
+
+.file-buttons button {
+    width: calc(30% - 10px);
+}
+
 .info {
     font-size: 12px;
     color: var(--info-text-color);
     margin-top: 10px;
+}
+
+.warning {
+    color: var(--warning-text-color);
 }
 
 .history {
@@ -196,7 +216,7 @@ button.swap:hover {
         margin-top: 80px;
     }
 
-    .buttons {
+    .buttons, .file-buttons {
         flex-direction: column;
         align-items: center;
     }
@@ -204,6 +224,10 @@ button.swap:hover {
     button {
         width: 100%;
         margin-bottom: 10px;
+    }
+
+    .file-buttons input[type="file"], .file-buttons button {
+        width: 100%;
     }
 
     header {
